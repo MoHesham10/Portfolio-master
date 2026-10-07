@@ -1,0 +1,541 @@
+.education-section {
+  padding: 100px 0;
+  background: var(--section-bg);
+  transition: background 0.3s ease;
+}
+
+:host-context([data-theme="light"]) .education-section {
+  background: var(--section-bg-alt);
+}
+
+.education-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+.section-title {
+  font-size: 2.5em;
+  font-weight: 700;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 60px;
+  position: relative;
+  transition: color 0.3s ease;
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+  }
+}
+
+.education-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius-md);
+  padding: 40px;
+  box-shadow: var(--shadow-light);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-primary);
+  }
+}
+
+:host-context([data-theme="light"]) .education-card {
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(95, 50, 231, 0.15);
+  }
+}
+
+.education-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.university-info {
+  flex: 1;
+}
+
+.university-name {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  transition: color 0.3s ease;
+}
+
+.degree {
+  font-size: 1.1em;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  transition: color 0.3s ease;
+}
+
+.info-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.gpa,
+.period {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1em;
+  color: var(--text-color-gray);
+  transition: color 0.3s ease;
+
+  i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+  }
+
+  strong {
+    color: var(--primary-color);
+    font-weight: 600;
+  }
+}
+
+// Project Section
+.project-section {
+  margin-top: 20px;
+}
+
+.project-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+  gap: 15px;
+
+  h4 {
+    font-size: 1.4em;
+    color: var(--text-color);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s ease;
+
+    i {
+      color: #ffd700;
+      font-size: 1.1em;
+    }
+
+    .project-name {
+      color: var(--primary-color);
+      font-weight: 700;
+    }
+  }
+}
+
+.grade-badge {
+  background: var(--primary-color);
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.95em;
+  box-shadow: 0 4px 12px rgba(124, 77, 255, 0.3);
+}
+
+.project-description {
+  color: var(--text-color-gray);
+  font-size: 1.05em;
+  line-height: 1.6;
+  margin-bottom: 25px;
+}
+
+// Media Carousel
+.media-carousel {
+  margin-bottom: 30px;
+}
+
+.carousel-wrapper {
+  position: relative;
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+  background: var(--bg-color);
+  margin-bottom: 15px;
+}
+
+.media-container {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 1.2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 2;
+
+  &:hover {
+    background: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  &.prev {
+    left: 15px;
+  }
+
+  &.next {
+    right: 15px;
+  }
+}
+
+.media-indicators {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--border-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+
+  &.video {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 0, 0, 0.2);
+    border: 2px solid rgba(255, 0, 0, 0.5);
+
+    i {
+      color: #ff0000;
+      font-size: 0.7em;
+    }
+
+    &.active {
+      background: rgba(255, 0, 0, 0.3);
+      border-color: #ff0000;
+    }
+  }
+
+  &.active {
+    width: 30px;
+    border-radius: 5px;
+    background: var(--primary-color);
+  }
+
+  &:hover {
+    background: var(--primary-light);
+  }
+}
+
+// Key Features
+.key-features {
+  background: rgba(124, 77, 255, 0.05);
+  border-left: 4px solid var(--primary-color);
+  padding: 25px;
+  border-radius: var(--border-radius-sm);
+  transition: background 0.3s ease;
+
+  h5 {
+    font-size: 1.2em;
+    color: var(--text-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      color: var(--text-color-gray);
+      font-size: 0.95em;
+      line-height: 1.6;
+      transition: color 0.3s ease;
+
+      i {
+        color: var(--primary-color);
+        font-size: 1em;
+        margin-top: 3px;
+        flex-shrink: 0;
+      }
+    }
+  }
+}
+
+:host-context([data-theme="light"]) .key-features {
+  background: rgba(95, 50, 231, 0.05);
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .education-section {
+    padding: 80px 0;
+  }
+
+  .education-container {
+    padding: 0 40px;
+  }
+
+  .section-title {
+    font-size: 2.2em;
+    margin-bottom: 50px;
+  }
+
+  .education-card {
+    padding: 35px;
+  }
+
+  .carousel-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-section {
+    padding: 60px 0;
+  }
+
+  .education-container {
+    padding: 0 30px;
+  }
+
+  .section-title {
+    font-size: 2em;
+    margin-bottom: 40px;
+  }
+
+  .education-card {
+    padding: 25px;
+  }
+
+  .education-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .university-name {
+    font-size: 1.5em;
+  }
+
+  .degree {
+    font-size: 1em;
+  }
+
+  .project-title {
+    flex-direction: column;
+    align-items: flex-start;
+
+    h4 {
+      font-size: 1.2em;
+    }
+  }
+
+  .media-container {
+    aspect-ratio: 16 / 9;
+    min-height: 200px;
+
+    iframe {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .carousel-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9em;
+
+    &.prev {
+      left: 10px;
+    }
+
+    &.next {
+      right: 10px;
+    }
+  }
+
+  .key-features {
+    padding: 20px;
+
+    h5 {
+      font-size: 1.1em;
+    }
+
+    ul li {
+      font-size: 0.9em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .education-section {
+    padding: 50px 0;
+  }
+
+  .education-container {
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+  .education-card {
+    padding: 20px;
+  }
+
+  .university-name {
+    font-size: 1.3em;
+  }
+
+  .degree {
+    font-size: 0.95em;
+  }
+
+  .info-row {
+    gap: 15px;
+  }
+
+  .gpa,
+  .period {
+    font-size: 0.9em;
+  }
+
+  .project-title h4 {
+    font-size: 1.1em;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .grade-badge {
+    padding: 6px 16px;
+    font-size: 0.9em;
+  }
+
+  .project-description {
+    font-size: 0.95em;
+  }
+
+  .media-container {
+    min-height: 180px;
+
+    iframe {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  .carousel-btn {
+    width: 30px;
+    height: 30px;
+    font-size: 0.85em;
+
+    &.prev {
+      left: 8px;
+    }
+
+    &.next {
+      right: 8px;
+    }
+  }
+
+  .indicator {
+    width: 8px;
+    height: 8px;
+
+    &.active {
+      width: 24px;
+    }
+
+    &.video {
+      width: 24px;
+      height: 24px;
+
+      i {
+        font-size: 0.6em;
+      }
+    }
+  }
+
+  .key-features {
+    padding: 18px;
+
+    h5 {
+      font-size: 1em;
+    }
+
+    ul li {
+      font-size: 0.85em;
+      gap: 10px;
+    }
+  }
+}

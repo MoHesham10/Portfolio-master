@@ -1,0 +1,73 @@
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <h2>Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <h3>Contact Information</h3>
+                @for (info of contactInfo; track info.text) {
+                <div class="contact-item">
+                    <i [class]="info.icon"></i>
+                    <p>{{ info.text }}</p>
+                </div>
+                }
+                <div class="social-links">
+                    @for (link of socialLinks; track link.icon) {
+                    <a [href]="link.url" target="_blank">
+                        <i [class]="link.icon"></i>
+                    </a>
+                    }
+                </div>
+            </div>
+            <div class="contact-form-wrapper">
+                <h3>Send Me a Message</h3>
+                <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" formControlName="name" placeholder="Your Name"
+                            [class.error]="contactForm.get('name')?.invalid && contactForm.get('name')?.touched">
+                        @if (contactForm.get('name')?.invalid && contactForm.get('name')?.touched) {
+                        <span class="error-message">Name is required</span>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" id="email" formControlName="email" placeholder="Your Email"
+                            [class.error]="contactForm.get('email')?.invalid && contactForm.get('email')?.touched">
+                        @if (contactForm.get('email')?.invalid && contactForm.get('email')?.touched) {
+                        <span class="error-message">Valid email is required</span>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" id="subject" formControlName="subject" placeholder="Subject"
+                            [class.error]="contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched">
+                        @if (contactForm.get('subject')?.invalid && contactForm.get('subject')?.touched) {
+                        <span class="error-message">Subject is required</span>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <textarea id="message" formControlName="message" rows="5" placeholder="Your Message"
+                            [class.error]="contactForm.get('message')?.invalid && contactForm.get('message')?.touched"></textarea>
+                        @if (contactForm.get('message')?.invalid && contactForm.get('message')?.touched) {
+                        <span class="error-message">Message is required</span>
+                        }
+                    </div>
+
+                    <button type="submit" class="submit-btn" [disabled]="isSubmitting">
+                        @if (isSubmitting) {
+                        <i class="fas fa-spinner fa-spin"></i> Sending...
+                        } @else {
+                        <i class="fas fa-paper-plane"></i> Send Message
+                        }
+                    </button>
+
+                    @if (submitMessage) {
+                    <div class="submit-message" [class.success]="submitSuccess" [class.error]="!submitSuccess">
+                        {{ submitMessage }}
+                    </div>
+                    }
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

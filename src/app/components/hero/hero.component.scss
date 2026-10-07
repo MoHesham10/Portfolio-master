@@ -1,0 +1,558 @@
+.header.finisher-header {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 0;
+  position: relative;
+  background: #000000;
+  overflow: hidden;
+  transition: background 0.3s ease;
+}
+
+/* --- Composite profile visuals (from provided design tokens) --- */
+.profile-composite {
+  position: relative;
+  width: 430px;
+  height: 410px;
+  border-radius: 50%;
+  overflow: visible;
+  transition: transform 500ms ease;
+}
+
+.profile-composite .art-fill,
+.profile-composite .art-mask {
+  position: absolute;
+  border-radius: 50%;
+  transition: transform 500ms ease;
+}
+
+.profile-composite .art-fill {
+  width: 365px;
+  height: 365px;
+  left: 50%;
+  top: 50%;
+  background: linear-gradient(180deg, rgba(255,177,71,0.95), rgba(255,108,99,0.95));
+  transform: translate(-50%, -53%) rotate(-18deg);
+  z-index: 1;
+}
+
+.profile-composite .art-mask {
+  width: 392px;
+  height: 392px;
+  left: 50%;
+  top: 50%;
+  /* use the dedicated hero blob color so it stays separate from the main theme color */
+  background: linear-gradient(180deg, var(--primary-light), var(--hero-circle-color));
+  transform: translate(-50%, -50%) rotate(10deg);
+  opacity: 0.95;
+  z-index: 2;
+}
+
+/* Keep the same blob colors in both themes so overlap looks consistent */
+.profile-composite .art-fill {
+  background: linear-gradient(180deg, rgba(255,177,71,0.92), rgba(255,108,99,0.92));
+}
+
+.profile-composite .art-mask {
+  background: linear-gradient(180deg, var(--primary-light), var(--hero-circle-color));
+  opacity: 1;
+}
+
+:host-context([data-theme="dark"]) .profile-composite .art-fill,
+:host-context([data-theme="light"]) .profile-composite .art-fill,
+:host-context([data-theme="dark"]) .profile-composite .art-mask,
+:host-context([data-theme="light"]) .profile-composite .art-mask {
+  mix-blend-mode: normal;
+}
+
+/* Main image layer */
+.profile-composite .img-layer {
+  position: absolute;
+  /* ensure image fits inside the colored blobs */
+  width: 96%;
+  height: 96%;
+  max-width: 416px;
+  max-height: 426px;
+  left: 50%;
+  top: 50%;
+  border-radius: 51%;
+  background-image: url('/images/Profile_Trans.png');
+  background-size: cover;
+  background-position: center top;
+  box-shadow: none;
+  transform: translate(-50%, -51.7%);
+  z-index: 3;
+  transition: transform 500ms ease;
+}
+
+/* subtle hover */
+.profile-frame:hover .profile-composite .art-fill{
+  transform: translate(-50%, -53%) rotate(-18deg) scale(1.15);
+}
+
+.profile-frame:hover .profile-composite .art-mask{
+  transform: translate(-50%, -50%) rotate(10deg) scale(1.15);
+}
+
+.profile-frame:hover .profile-composite .img-layer{
+  transform: translate(-50%, -51%) scale(1.15);
+}
+
+/* responsive approximations */
+@media (max-width:1024px){
+  .profile-frame{width: 380px;}
+  .profile-composite{width: 380px; height: 364px;}
+  .profile-composite .img-layer{width: 95%; height: 95%; max-width: 370px; max-height: 354px;}
+  .profile-composite .art-fill{width: 332px; height: 332px;}
+  .profile-composite .art-mask{width: 356px; height: 356px;}
+}
+@media (max-width:768px){
+  .profile-frame{width: 300px;}
+  .profile-composite{width: 300px; height: 288px;}
+  .profile-composite .img-layer{
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 288px;
+    background-size: 110%;
+    transform: translate(-50%, -51.8%) scale(1.02);
+  }
+  .profile-composite .art-fill{width: 268px; height: 268px;}
+  .profile-composite .art-mask{width: 286px; height: 286px;}
+}
+
+::ng-deep .finisher-header canvas {
+  position: absolute;
+  height: 100%;
+  z-index: 1 !important;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+:host-context([data-theme="light"]) ::ng-deep .finisher-header canvas {
+  opacity: 0;
+  visibility: hidden;
+}
+
+:host-context([data-theme="light"]) .header.finisher-header {
+  background: var(--section-bg-alt);
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 100px;
+  margin-top: 50px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+}
+
+.text-content {
+  max-width: 600px;
+
+  span {
+    color: var(--primary-color);
+  }
+
+  h1 {
+    color: var(--text-color);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    transition: color 0.3s ease;
+  }
+
+  h3 {
+    color: var(--text-color-gray);
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    min-width: 1ch;
+    min-height: 1.2em;
+    transition: color 0.3s ease;
+  }
+
+  :host-context([data-theme="light"]) h3 {
+    color: var(--text-color-light);
+  }
+
+  p {
+    color: var(--text-color-gray);
+    font-size: 1.3em;
+    line-height: 1.6;
+    transition: color 0.3s ease;
+  }
+
+  :host-context([data-theme="light"]) p {
+    color: var(--text-color-light);
+  }
+}
+
+.profile-frame {
+  width: clamp(300px, 33vw, 430px);
+  aspect-ratio: 430 / 410;
+  border-radius: 50%;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  position: relative;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 300ms ease, box-shadow 300ms ease, background 300ms ease;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+
+  .profile-composite {
+    margin: 0 auto;
+  }
+}
+
+:host-context([data-theme="light"]) .profile-frame {
+  background: transparent;
+  box-shadow: none;
+}
+
+.button-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 3rem;
+  border: 2px solid var(--primary-color);
+  background: var(--primary-color);
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: transparent;
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 77, 255, 0.3);
+  }
+
+  &.cv-btn {
+    background: transparent;
+    color: var(--primary-color);
+
+    &:hover {
+      background: var(--primary-color);
+      color: #ffffff;
+    }
+  }
+}
+
+:host-context([data-theme="light"]) .btn {
+  border-color: var(--primary-color);
+  
+  &:hover {
+    box-shadow: 0 4px 12px rgba(124, 77, 255, 0.2);
+  }
+}
+
+.tech-stack {
+  text-align: center;
+  padding: 80px 100px 50px;
+  position: relative;
+  z-index: 10;
+
+  h2 {
+    color: var(--text-color);
+    font-size: 2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+    transition: color 0.3s ease;
+  }
+}
+
+.tech-icons {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.tech-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 15px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-width: 100px;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  i {
+    font-size: 2.2em;
+  }
+
+  img {
+    width: 36px;
+    height: 36px;
+  }
+
+  span {
+    color: var(--text-color-gray);
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  &.siemens i {
+    color: #009999;
+  }
+
+  &.stm32 i {
+    color: #03234b;
+    background: linear-gradient(135deg, #03234b, #0783c4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &.esp32 i {
+    color: #E7352C;
+  }
+
+  &.tia i {
+    color: #00897B;
+  }
+
+  &.js i {
+    color: #f7df1e;
+  }
+
+  &.css i {
+    color: #264de4;
+  }
+}
+
+:host-context([data-theme="light"]) .tech-icon {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .content {
+    padding: 0 50px;
+    margin-top: 30px;
+  }
+
+  .text-content {
+    h1 {
+      font-size: 2.1em;
+    }
+
+    h3 {
+      font-size: 1.7em;
+    }
+
+    p {
+      font-size: 1.1em;
+    }
+  }
+
+  .profile-frame {
+    width: 380px;
+  }
+
+  .tech-stack {
+    padding: 60px 50px 40px;
+  }
+
+  .tech-icons {
+    gap: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column;
+    padding: 0 30px;
+    margin-top: 20px;
+    gap: 40px;
+  }
+
+  .text-content {
+    max-width: 100%;
+    text-align: center;
+
+    h1 {
+      font-size: 1.5em;
+    }
+
+    h3 {
+      font-size: 1.4em;
+      white-space: normal;
+    }
+
+    p {
+      font-size: 1em;
+    }
+  }
+
+  .profile-frame {
+    width: 300px;
+    order: -1;
+  }
+
+  .button-group {
+    justify-content: center;
+    margin: 20px auto 0;
+  }
+
+  .btn {
+    margin: 0;
+  }
+
+  .tech-stack {
+    padding: 50px 30px 30px;
+
+    h2 {
+      font-size: 1.6em;
+    }
+  }
+
+  .tech-icons {
+    gap: 30px;
+  }
+
+  .tech-icon {
+    min-width: 80px;
+    padding: 15px;
+
+    i {
+      font-size: 2.5em;
+    }
+
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .header.finisher-header {
+    min-height: auto;
+    padding-bottom: 30px;
+  }
+
+  .content {
+    padding: 0 20px;
+    gap: 30px;
+  }
+
+  .text-content {
+    h1 {
+      font-size: 1.3em;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 0.95em;
+    }
+  }
+
+  .profile-frame {
+    width: 240px;
+  }
+
+  .profile-composite {
+    width: 240px;
+    height: 230px;
+  }
+
+  .profile-composite .img-layer {
+    width: 100%;
+    height: 100%;
+    max-width: 240px;
+    max-height: 230px;
+    background-size: 113%;
+    transform: translate(-50%, -52%) scale(1.03);
+  }
+
+  .profile-composite .art-fill {
+    width: 214px;
+    height: 214px;
+  }
+
+  .profile-composite .art-mask {
+    width: 228px;
+    height: 228px;
+  }
+
+  .button-group {
+    gap: 10px;
+  }
+
+  .btn {
+    width: 11rem;
+    height: 2.8rem;
+    font-size: 0.9em;
+  }
+
+  .tech-stack {
+    padding: 40px 20px 20px;
+
+    h2 {
+      font-size: 1.4em;
+      margin-bottom: 30px;
+    }
+  }
+
+  .tech-icons {
+    gap: 20px;
+  }
+
+  .tech-icon {
+    min-width: 70px;
+    padding: 12px;
+
+    i {
+      font-size: 2em;
+    }
+
+    img {
+      width: 32px;
+      height: 32px;
+    }
+
+    span {
+      font-size: 0.8em;
+    }
+  }
+}

@@ -1,0 +1,55 @@
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Mohamed Ali</h3>
+                <p>
+                    Industrial Automation & PLC Engineer passionate about creating smart
+                    automation solutions and robotic systems.
+                </p>
+                <div class="footer-social">
+                    @for (link of socialLinks; track link.icon) {
+                    <a [href]="link.url">
+                        <i [class]="link.icon"></i>
+                    </a>
+                    }
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    @for (link of quickLinks; track link.name) {
+                    <li>
+                        <a [href]="link.url">{{ link.name }}</a>
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Services</h4>
+                <ul>
+                    @for (service of services; track service.name) {
+                    <li>
+                        <a [href]="service.url">{{ service.name }}</a>
+                    </li>
+                    }
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> mohamed.ali.sabber@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +20 1097055524</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Cairo, Egypt</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; {{ currentYear }} Mohamed Ali. All rights reserved.</p>
+        </div>
+    </div>
+</footer>

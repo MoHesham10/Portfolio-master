@@ -1,0 +1,360 @@
+nav {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  width: 80%;
+  margin: 0 auto;
+  padding: 18px 60px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+}
+
+:host-context([data-theme="light"]) nav {
+  background: rgba(248, 249, 250, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+:host-context([data-theme="light"]) nav:hover {
+  background: rgba(248, 249, 250, 0.98);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  text-decoration: none;
+  color: var(--text-color);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.5em;
+  transition: color 0.3s ease;
+  position: absolute;
+  left: 60px;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.navigation a {
+  color: var(--text-color-light);
+  text-decoration: none;
+  font-size: 1em;
+  font-weight: 500;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: var(--primary-light);
+  }
+
+  &.active {
+    color: var(--primary-light);
+    text-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: var(--primary-light);
+      box-shadow: 0 0 10px rgba(124, 77, 255, 0.5);
+    }
+  }
+}
+
+.theme-switch {
+  display: inline-block;
+  position: absolute;
+  right: 60px;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 28px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: absolute;
+  right: 100px;
+
+  span {
+    width: 100%;
+    height: 3px;
+    background: var(--text-color);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  &.active {
+    span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+  }
+}
+
+.toggle-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 60px;
+  height: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  padding: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+
+  i {
+    z-index: 1;
+    font-size: 0.8em;
+    color: #fff;
+    transition: all 0.3s ease;
+  }
+
+  .fa-sun {
+    margin-left: 3px;
+  }
+
+  .fa-moon {
+    margin-right: 3px;
+  }
+}
+
+.toggle-ball {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#theme-toggle {
+  display: none;
+
+  &:checked + .toggle-label {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+
+    .toggle-ball {
+      transform: translateX(30px);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  nav {
+    width: 85%;
+    padding: 15px 40px;
+  }
+
+  .logo {
+    font-size: 1.3em;
+    left: 40px;
+  }
+
+  .navigation {
+    gap: 20px;
+  }
+
+  .navigation a {
+    font-size: 0.92em;
+  }
+
+  .theme-switch {
+    right: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav {
+    width: 90%;
+    padding: 20px 30px;
+    border-radius: 40px;
+  }
+
+  .logo {
+    font-size: 1.15em;
+    left: 30px;
+  }
+
+  .menu-toggle {
+    display: flex;
+    right: 80px;
+  }
+
+  .navigation {
+    position: fixed;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    &.mobile-open {
+      max-height: 500px;
+      opacity: 1;
+      padding: 25px 20px;
+    }
+  }
+
+  :host-context([data-theme=\"light\"]) .navigation {
+    background: rgba(248, 249, 250, 0.98);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .navigation a {
+    font-size: 1em;
+    padding: 12px 20px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    text-align: center;
+
+    &:hover {
+      background: rgba(124, 77, 255, 0.1);
+      transform: translateX(5px);
+    }
+
+    &.active {
+      background: rgba(124, 77, 255, 0.15);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  .theme-switch {
+    right: 25px;
+  }
+
+  .toggle-label {
+    width: 50px;
+    height: 25px;
+
+    i {
+      font-size: 0.7em;
+    }
+  }
+
+  .toggle-ball {
+    width: 20px;
+    height: 20px;
+  }
+
+  #theme-toggle:checked + .toggle-label .toggle-ball {
+    transform: translateX(25px);
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    width: 92%;
+    padding: 16px 20px;
+    border-radius: 30px;
+    top: 15px;
+  }
+
+  .logo {
+    font-size: 1.05em;
+    left: 20px;
+  }
+
+  .menu-toggle {
+    right: 70px;
+    width: 25px;
+    height: 20px;
+
+    span {
+      height: 2.5px;
+    }
+  }
+
+  .navigation {
+    top: 70px;
+    width: 88%;
+    padding: 15px;
+    
+    &.mobile-open {
+      padding: 20px 15px;
+    }
+  }
+
+  .navigation a {
+    font-size: 0.95em;
+    padding: 10px 15px;
+  }
+
+  .theme-switch {
+    right: 20px;
+  }
+
+  .toggle-label {
+    width: 45px;
+    height: 22px;
+    padding: 3px;
+
+    i {
+      font-size: 0.65em;
+    }
+  }
+
+  .toggle-ball {
+    width: 18px;
+    height: 18px;
+    top: 2px;
+    left: 2px;
+  }
+
+  #theme-toggle:checked + .toggle-label .toggle-ball {
+    transform: translateX(23px);
+  }
+}

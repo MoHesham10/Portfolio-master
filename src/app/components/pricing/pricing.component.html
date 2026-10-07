@@ -1,0 +1,19 @@
+<section id="Pricing" class="pricing-section">
+    <div class="pricing-container">
+        <h2>My Services</h2>
+        <div class="pricing-grid">
+            @for (package of packages; track package.name) {
+            <div class="pricing-card" [class.featured]="package.featured">
+                <h3>{{ package.name }}</h3>
+                <div class="price">{{ package.price }}</div>
+                <ul>
+                    @for (feature of package.features; track feature) {
+                    <li>{{ feature }}</li>
+                    }
+                </ul>
+                <a href="#contact" class="btn">Get Started</a>
+            </div>
+            }
+        </div>
+    </div>
+</section>

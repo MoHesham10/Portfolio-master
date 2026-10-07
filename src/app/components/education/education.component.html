@@ -1,0 +1,92 @@
+<section id="Education" class="education-section">
+    <div class="education-container">
+        <h2 class="section-title">Education</h2>
+
+        <div class="education-card">
+            <!-- Basic Info -->
+            <div class="education-header">
+                <div class="university-info">
+                    <h3 class="university-name">{{ education.university }}</h3>
+                    <p class="degree">{{ education.degree }}</p>
+                    <div class="info-row">
+                        <div class="gpa">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>GPA: <strong>{{ education.gpa }}</strong></span>
+                        </div>
+                        <div class="period">
+                            <i class="far fa-calendar-alt"></i>
+                            <span>{{ education.period }}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Graduation Project -->
+            <div class="project-section">
+                <div class="project-title">
+                    <h4>
+                        <i class="fas fa-trophy"></i>
+                        Graduation Project: <span class="project-name">{{ education.project.name }}</span>
+                    </h4>
+                    <span class="grade-badge">{{ education.project.grade }}</span>
+                </div>
+
+                <p class="project-description">{{ education.project.description }}</p>
+
+                <!-- Media Carousel -->
+                <div class="media-carousel">
+                    <div class="carousel-wrapper">
+                        @if (education.project.media.length > 1) {
+                        <button class="carousel-btn prev" (click)="prevMedia()">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        }
+
+                        <div class="media-container">
+                            @if (currentMedia.type === 'video') {
+                            <iframe [src]="getSafeUrl(currentMedia.url)" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                            } @else {
+                            <img [src]="currentMedia.url" [alt]="education.project.name" />
+                            }
+                        </div>
+
+                        @if (education.project.media.length > 1) {
+                        <button class="carousel-btn next" (click)="nextMedia()">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        }
+                    </div>
+
+                    @if (education.project.media.length > 1) {
+                    <div class="media-indicators">
+                        @for (media of education.project.media; track $index) {
+                        <span class="indicator" [class.active]="currentMediaIndex === $index"
+                            [class.video]="media.type === 'video'" (click)="setMedia($index)">
+                            @if (media.type === 'video') {
+                            <i class="fas fa-play"></i>
+                            }
+                        </span>
+                        }
+                    </div>
+                    }
+                </div>
+
+                <!-- Key Features -->
+                <div class="key-features">
+                    <h5>Key Features</h5>
+                    <ul>
+                        @for (feature of education.project.features; track feature) {
+                        <li>
+                            <i class="fas fa-check-circle"></i>
+                            <span>{{ feature }}</span>
+                        </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

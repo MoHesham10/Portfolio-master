@@ -1,0 +1,35 @@
+<nav>
+    <a href="#" class="logo">Mohamed</a>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="navigation" [class.mobile-open]="isMenuOpen()">
+        <a href="#Home" [class.active]="activeSection() === 'Home'"
+            (click)="setActiveSection('Home'); closeMenu()">Home</a>
+        <a href="#About" [class.active]="activeSection() === 'About'"
+            (click)="setActiveSection('About'); closeMenu()">About</a>
+        <a href="#Education" [class.active]="activeSection() === 'Education'"
+            (click)="setActiveSection('Education'); closeMenu()">Education</a>
+        <a href="#certifications" [class.active]="activeSection() === 'certifications'"
+            (click)="setActiveSection('certifications'); closeMenu()">Certifications</a>
+        <a href="#Skills" [class.active]="activeSection() === 'Skills'"
+            (click)="setActiveSection('Skills'); closeMenu()">Skills</a>
+        <a href="#projects" [class.active]="activeSection() === 'projects'"
+            (click)="setActiveSection('projects'); closeMenu()">Projects</a>
+        <a href="#contact" [class.active]="activeSection() === 'contact'"
+            (click)="setActiveSection('contact'); closeMenu()">Contact</a>
+    </div>
+
+    <div class="theme-switch">
+        <input type="checkbox" id="theme-toggle" [checked]="!isDarkTheme()" (change)="toggleTheme()" />
+        <label for="theme-toggle" class="toggle-label">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+            <span class="toggle-ball"></span>
+        </label>
+    </div>
+</nav>

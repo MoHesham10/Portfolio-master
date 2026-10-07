@@ -1,0 +1,174 @@
+.skills-section {
+  padding: 100px 0;
+  background: var(--background-color);
+}
+
+:host-context([data-theme="light"]) .skills-section {
+  background: var(--section-bg-alt);
+}
+
+.skills-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 100px;
+
+  h2 {
+    color: var(--text-color);
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 60px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 20px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      border-radius: 2px;
+    }
+  }
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.skill-card {
+  padding: 40px 30px;
+  border-radius: var(--border-radius-md);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-primary);
+  }
+
+  > i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  h3 {
+    color: var(--text-color);
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      color: var(--text-color-gray);
+      font-size: 1.1em;
+      padding: 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      i {
+        color: var(--primary-light);
+        width: 20px;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1024px) {
+  .skills-container {
+    padding: 0 50px;
+
+    h2 {
+      font-size: 2.2em;
+      margin-bottom: 50px;
+    }
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .skills-section {
+    padding: 80px 0;
+  }
+
+  .skills-container {
+    padding: 0 30px;
+
+    h2 {
+      font-size: 2em;
+      margin-bottom: 40px;
+    }
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .skill-card {
+    padding: 30px 25px;
+
+    > i {
+      font-size: 2.5em;
+    }
+
+    h3 {
+      font-size: 1.3em;
+    }
+
+    ul li {
+      font-size: 1em;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-section {
+    padding: 60px 0;
+  }
+
+  .skills-container {
+    padding: 0 20px;
+
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 30px;
+    }
+  }
+
+  .skill-card {
+    padding: 25px 20px;
+
+    > i {
+      font-size: 2.2em;
+      margin-bottom: 15px;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      margin-bottom: 15px;
+    }
+
+    ul li {
+      font-size: 0.95em;
+      padding: 8px 0;
+    }
+  }
+}

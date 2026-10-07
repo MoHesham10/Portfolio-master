@@ -1,0 +1,20 @@
+<section id="Skills" class="skills-section">
+    <div class="skills-container">
+        <h2>My Skills</h2>
+        <div class="skills-grid">
+            @for (skill of skills; track skill.title) {
+            <div class="skill-card">
+                <i [class]="skill.icon"></i>
+                <h3>{{ skill.title }}</h3>
+                <ul>
+                    @for (item of skill.items; track item.name) {
+                    <li>
+                        <i [class]="item.icon"></i> {{ item.name }}
+                    </li>
+                    }
+                </ul>
+            </div>
+            }
+        </div>
+    </div>
+</section>
