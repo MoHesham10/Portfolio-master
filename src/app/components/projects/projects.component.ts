@@ -47,6 +47,41 @@ export class ProjectsComponent {
                 'Prepared manufacturing drawings and files for machining, laser cutting, and 3D printing.'
             ]
         },
+        {
+            images: [
+                'images/AI-Based Autonomous Research Boat/1752428412699.jpg',
+                'images/AI-Based Autonomous Research Boat/20250923_183005.jpg',
+                'images/AI-Based Autonomous Research Boat/IMG-20250925-WA0018.jpg',
+                'images/AI-Based Autonomous Research Boat/1752428412357.jpg'
+            ],
+            title: 'AI-Based Autonomous Research Boat',
+            description: 'Siemens EDA Funde - Autonomous research boat designed for environmental data collection.',
+            award: 'IEEEMSB 2025 IoT Competition 1st Place',
+            technologies: [
+                'SolidWorks',
+                'Mechanical Design',
+                'Weldments',
+                'Sheet Metal Design',
+                'Buoyancy Calculations',
+                'Material Selection',
+                'Waterproofing',
+                'Fabrication',
+                'Assembly',
+                'Testing'
+            ],
+            details: [
+                'SolidWorks',
+                'Mechanical Design',
+                'Weldments',
+                'Sheet Metal Design',
+                'Buoyancy Calculations',
+                'Material Selection',
+                'Waterproofing',
+                'Fabrication',
+                'Assembly',
+                'Testing'
+            ]
+        },
 
         {
             images: [
@@ -99,29 +134,6 @@ export class ProjectsComponent {
                 'Comprehensive admin panel for managing rooms, pricing, and reservations',
                 'Built with N-Tier Architecture and Repository/Unit of Work patterns',
                 'Developed as part of Digital Egypt Pioneers Initiative (DEPI)'
-            ]
-        },
-        {
-            images: [
-                'images/AI-Based Autonomous Research Boat/1752428412699.jpg',
-                'images/AI-Based Autonomous Research Boat/20250923_183005.jpg',
-                'images/AI-Based Autonomous Research Boat/IMG-20250925-WA0018.jpg',
-                'images/AI-Based Autonomous Research Boat/1752428412357.jpg'
-            ],
-            title: 'AI-Based Autonomous Research Boat',
-            description: 'Siemens EDA Funded - IoT & Dashboard Developer for autonomous marine robot with real-time monitoring',
-            award: 'IEEEMSB 2025 IoT Competition 1st Place',
-            technologies: ['Angular', 'IoT', 'Computer Vision', 'Leaflet', 'Real-time Dashboard', 'Sensor Integration', 'WebSockets'],
-            details: [
-                'Developed comprehensive web dashboard for real-time monitoring and control',
-                'Integrated computer vision system with web interface for live camera feed',
-                'Built real-time statistics display for sensor data (wind speed, direction, environmental metrics)',
-                'Implemented manual control mode for remote robot operation',
-                'Designed path planning system with interactive map interface',
-                'Enabled autonomous navigation along predefined routes on the map',
-                'Integrated data logging system that records sensor readings at discovered locations',
-                'Real-time visualization of collected data points on the map',
-                'Funded and supported by Siemens EDA (Siemens Digital Industries Software)'
             ]
         },
         {
