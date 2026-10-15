@@ -32,25 +32,25 @@ export class CertificationsComponent {
             image: 'images/Certificates/HIVE_MQ.png'
         },
         {
-            title: 'Full Stack .Net Web Developer',
-            issuer: 'Digital Egypt Pioneers Initiative (DEPI)',
-            date: 'June - December 2025',
-            image: 'images/Certificates/DEPI.png'
-        },
-        {
-            title: '18th Undergraduate Research Forum',
-            issuer: 'Nile University',
-            date: 'August 2024',
+            title: 'AAKRUTI Innovation Competition 2025 – Participation Certificate',
+            issuer: 'Dassault Systèmes SOLIDWORKS',
+            date: 'Oct 2025',
             image: 'images/Certificates/165.jpg'
         },
         {
-            title: 'Machine Learning for Data Analysis',
-            issuer: 'National Telecommunication Institute (NTI)',
-            date: 'September - October 2024',
+            title: 'Certificate of Research Paper Presentation - MEPCON 2024',
+            issuer: 'IEEE - International MEPCON Conference',
+            date: 'December 2024',
+            image: 'images/Certificates/DEPI.png'
+        },
+        {
+            title: 'PLC Programming & Automation Trainee',
+            issuer: 'HA Consulting Group',
+            date: 'Jul 2024',
             image: 'images/Certificates/NTI.png'
         },
         {
-            title: 'Head Software - SparkTech Training',
+            title: 'Head Mechanical Design - SparkTech Training',
             issuer: 'SparkTech',
             date: 'October 2023',
             image: 'images/Certificates/SW_HEAD.png'
