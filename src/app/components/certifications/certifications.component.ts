@@ -20,15 +20,15 @@ interface Certificate {
 export class CertificationsComponent {
     certificates: Certificate[] = [
         {
-            title: 'Cisco Certified Support Technician Networking',
-            issuer: 'Cisco',
-            date: 'May 2026',
+            title: 'SCE – Mechatronics Engineer Accreditation',
+            issuer: 'Saudi Council of Engineers',
+            date: 'Aug 2026',
             image: 'images/Certificates/Cisco Certified Support Technician Networking.png'
         },
         {
-            title: 'HiveMQ Certified MQTT Associate',
-            issuer: 'HiveMQ',
-            date: 'February 2026',
+            title: 'Flashforge Certificate - Advanced Maintenance & Repair',
+            issuer: 'Flashforge 3D Technology Co.',
+            date: 'June 2026',
             image: 'images/Certificates/HIVE_MQ.png'
         },
         {

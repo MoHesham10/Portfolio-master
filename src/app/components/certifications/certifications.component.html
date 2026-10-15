@@ -3,7 +3,7 @@
         <h2>Certifications</h2>
 
         <div class="certifications-grid">
-            @for (cert of certificates; track cert.title) {
+            @for (cert of certificates.slice(0, 3); track cert.title) {
             <div class="cert-card">
                 <div class="cert-image">
                     <img [src]="cert.image" [alt]="cert.title" />
