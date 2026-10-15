@@ -288,70 +288,76 @@
 
 .tech-icons {
   display: flex;
-  justify-content: center;
-  gap: 60px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  gap: 44px;
+  max-width: 1050px;
+  margin: 0 auto;
+  overflow-x: auto;
+  padding: 6px 4px 12px;
+  scrollbar-width: thin;
 }
 
 .tech-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 20px;
-  border-radius: 15px;
+  justify-content: center;
+  flex: 1 0 110px;
+  gap: 8px;
+  min-width: 110px;
+  min-height: 112px;
+  padding: 12px 10px;
+  border-radius: 14px;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
-  transition: all 0.3s ease;
-  cursor: pointer;
-  min-width: 100px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-primary);
   }
 
   i {
-    font-size: 2.2em;
+    font-size: 2em;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
-  img {
-    width: 36px;
-    height: 36px;
+  &.solidworks i {
+    background-image: linear-gradient(135deg, #ff6b5e, #c62828);
+  }
+
+  &.fusion i {
+    background-image: linear-gradient(135deg, #ffc857, #f06a24);
+  }
+
+  &.inventor i {
+    background-image: linear-gradient(135deg, #59c3ff, #1769aa);
+  }
+
+  &.simulation i {
+    background-image: linear-gradient(135deg, #55d6be, #168f87);
+  }
+
+  &.siemens i {
+    background-image: linear-gradient(135deg, #50d5ee, #087ca7);
+  }
+
+  &.tia i {
+    background-image: linear-gradient(135deg, #9ad94a, #179b75);
+  }
+
+  &.proteus i {
+    background-image: linear-gradient(135deg, #72e0c2, #2875a8);
   }
 
   span {
     color: var(--text-color-gray);
-    font-size: 0.9em;
+    font-size: 0.95em;
     font-weight: 500;
-  }
-
-  &.siemens i {
-    color: #009999;
-  }
-
-  &.stm32 i {
-    color: #03234b;
-    background: linear-gradient(135deg, #03234b, #0783c4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  &.esp32 i {
-    color: #E7352C;
-  }
-
-  &.tia i {
-    color: #00897B;
-  }
-
-  &.js i {
-    color: #f7df1e;
-  }
-
-  &.css i {
-    color: #264de4;
+    line-height: 1.35;
   }
 }
 
@@ -389,7 +395,7 @@
   }
 
   .tech-icons {
-    gap: 40px;
+    gap: 34px;
   }
 }
 
@@ -444,20 +450,6 @@
   .tech-icons {
     gap: 30px;
   }
-
-  .tech-icon {
-    min-width: 80px;
-    padding: 15px;
-
-    i {
-      font-size: 2.5em;
-    }
-
-    img {
-      width: 40px;
-      height: 40px;
-    }
-  }
 }
 
 @media (max-width: 480px) {
@@ -489,6 +481,14 @@
 
   .profile-frame {
     width: 240px;
+  }
+
+  .tech-icons {
+    gap: 26px;
+  }
+
+  .tech-icons {
+    gap: 14px;
   }
 
   .profile-composite {
@@ -534,25 +534,16 @@
     }
   }
 
-  .tech-icons {
-    gap: 20px;
-  }
-
   .tech-icon {
-    min-width: 70px;
+    min-height: 105px;
     padding: 12px;
 
     i {
-      font-size: 2em;
-    }
-
-    img {
-      width: 32px;
-      height: 32px;
+      font-size: 1.8em;
     }
 
     span {
-      font-size: 0.8em;
+      font-size: 0.85em;
     }
   }
 }

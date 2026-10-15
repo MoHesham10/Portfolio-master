@@ -103,8 +103,8 @@ export class HeroComponent implements OnInit, OnDestroy, AfterViewInit {
 
     downloadCV() {
         const link = document.createElement('a');
-        link.href = 'CV.pdf';
-        link.download = 'Mohamed_Ali_CV.pdf';
+        link.href = 'CV.pdf?v=20261014';
+        link.download = 'Mohamed_Hesham_Khattab_CV.pdf';
         link.click();
     }
 }

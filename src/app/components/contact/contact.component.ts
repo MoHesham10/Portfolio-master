@@ -22,14 +22,13 @@ export class ContactComponent {
     submitSuccess = false;
 
     contactInfo: ContactInfo[] = [
-        { icon: 'fas fa-envelope', text: 'mohamed.ali.sabber@gmail.com' },
-        { icon: 'fas fa-phone', text: '+20 1097055524' },
-        { icon: 'fas fa-map-marker-alt', text: 'Cairo, Egypt' }
+        { icon: 'fas fa-envelope', text: 'muhamed.hesham55@gmail.com' },
+        { icon: 'fas fa-phone', text: '+966 535378786' },
+        { icon: 'fas fa-map-marker-alt', text: 'Jeddah, Saudi Arabia' }
     ];
 
     socialLinks = [
-        { icon: 'fab fa-github', url: 'https://github.com/mohamedali559' },
-        { icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/in/mohamed-ali-saber-/' }
+        { icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/in/mohamedd-heshamm' }
     ];
 
     constructor(private fb: FormBuilder) {
@@ -55,7 +54,7 @@ export class ContactComponent {
                     from_email: this.contactForm.value.email,
                     subject: this.contactForm.value.subject,
                     message: this.contactForm.value.message,
-                    to_email: 'mohamed.ali.sabber@gmail.com'
+                    to_email: 'muhamed.hesham55@gmail.com'
                 };
 
                 await emailjs.send(

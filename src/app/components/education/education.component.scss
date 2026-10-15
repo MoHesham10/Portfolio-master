@@ -257,23 +257,6 @@
   justify-content: center;
   position: relative;
 
-  &.video {
-    width: 30px;
-    height: 30px;
-    background: rgba(255, 0, 0, 0.2);
-    border: 2px solid rgba(255, 0, 0, 0.5);
-
-    i {
-      color: #ff0000;
-      font-size: 0.7em;
-    }
-
-    &.active {
-      background: rgba(255, 0, 0, 0.3);
-      border-color: #ff0000;
-    }
-  }
-
   &.active {
     width: 30px;
     border-radius: 5px;
@@ -316,6 +299,15 @@
       font-size: 0.95em;
       line-height: 1.6;
       transition: color 0.3s ease;
+
+      > span {
+        color: #ffffff;
+      }
+
+      .feature-title {
+        color: var(--primary-color);
+        font-weight: 400;
+      }
 
       i {
         color: var(--primary-color);
@@ -516,14 +508,6 @@
       width: 24px;
     }
 
-    &.video {
-      width: 24px;
-      height: 24px;
-
-      i {
-        font-size: 0.6em;
-      }
-    }
   }
 
   .key-features {

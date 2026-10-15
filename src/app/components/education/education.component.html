@@ -43,14 +43,7 @@
                         }
 
                         <div class="media-container">
-                            @if (currentMedia.type === 'video') {
-                            <iframe [src]="getSafeUrl(currentMedia.url)" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-                            } @else {
                             <img [src]="currentMedia.url" [alt]="education.project.name" />
-                            }
                         </div>
 
                         @if (education.project.media.length > 1) {
@@ -64,11 +57,7 @@
                     <div class="media-indicators">
                         @for (media of education.project.media; track $index) {
                         <span class="indicator" [class.active]="currentMediaIndex === $index"
-                            [class.video]="media.type === 'video'" (click)="setMedia($index)">
-                            @if (media.type === 'video') {
-                            <i class="fas fa-play"></i>
-                            }
-                        </span>
+                            (click)="setMedia($index)"></span>
                         }
                     </div>
                     }
@@ -78,10 +67,10 @@
                 <div class="key-features">
                     <h5>Key Features</h5>
                     <ul>
-                        @for (feature of education.project.features; track feature) {
+                        @for (feature of education.project.features; track feature.title) {
                         <li>
                             <i class="fas fa-check-circle"></i>
-                            <span>{{ feature }}</span>
+                            <span><span class="feature-title">{{ feature.title }}:</span> {{ feature.description }}</span>
                         </li>
                         }
                     </ul>

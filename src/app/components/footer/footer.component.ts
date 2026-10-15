@@ -26,7 +26,6 @@ export class FooterComponent {
     ];
 
     socialLinks = [
-        { icon: 'fab fa-github', url: 'https://github.com/mohamedali559' },
-        { icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/in/mohamed-ali-saber-/' }
+        { icon: 'fab fa-linkedin', url: 'https://www.linkedin.com/in/mohamedd-heshamm' }
     ];
 }

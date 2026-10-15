@@ -1,12 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-
-interface Media {
-    type: 'video' | 'image';
-    url: string;
-    thumbnail?: string;
-}
 
 @Component({
     selector: 'app-education',
@@ -21,60 +14,56 @@ export class EducationComponent {
     education = {
         university: 'Mansoura University',
         degree: 'Bachelor in Mechatronics Engineering',
-        gpa: '3.66 / 4.0',
-        period: '2021 – 2026',
+        gpa: '3.71 / 4.0 (Excellent)',
+        period: '2020 – 2025',
         project: {
-            name: 'CrashXpert',
+            name: 'NERITES',
             grade: 'A+',
-            description: 'IoT-based car accident management system with real-time monitoring and AI detection',
+            description: 'AI-Powered Remotely Operated Underwater Vehicle (ROV) for Visual Exploration and Robotic Object Retrieval',
             media: [
                 {
-                    type: 'image' as const,
                     url: 'images/Graduation_Project/IMG-20260127-WA0081.jpg'
                 },
                 {
-                    type: 'image' as const,
                     url: 'images/Graduation_Project/Screenshot 2026-01-23 234018.png'
                 },
                 {
-                    type: 'image' as const,
                     url: 'images/Graduation_Project/Screenshot 2026-01-24 180207.png'
                 },
                 {
-                    type: 'image' as const,
                     url: 'images/Graduation_Project/Screenshot 2026-01-24 180318.png'
                 },
                 {
-                    type: 'image' as const,
                     url: 'images/Graduation_Project/Screenshot 2026-01-24 180628.png'
                 },
                 {
-                    type: 'image' as const,
                     url: 'images/Graduation_Project/IMG-20260127-WA0039.jpg'
-                },
-
-                {
-                    type: 'video' as const,
-                    url: 'https://www.youtube-nocookie.com/embed/EH3oJ_wg3ZY',
-                    thumbnail: 'images/Graduation_Project/Screenshot 2026-01-23 234018.png'
                 }
-
             ],
             features: [
-                'Real-time accident detection using ESP32 & Raspberry Pi',
-                'Live camera streaming with YOLO object detection',
-                'AI-powered drowsiness detection',
-                'Multi-channel emergency notifications',
-                'Built with Angular 18, Firebase, and IoT hardware'
+                {
+                    title: 'Underwater Visual Exploration',
+                    description: 'Real-time video streaming for underwater observation.'
+                },
+                {
+                    title: 'Thruster-Based Maneuverability',
+                    description: 'Controlled movement and depth adjustment.'
+                },
+                {
+                    title: 'Integrated ROV Control System',
+                    description: "Coordinated control of the vehicle's propulsion and onboard systems."
+                },
+                {
+                    title: '3-DOF Robotic Arm',
+                    description: 'Precise underwater object retrieval.'
+                },
+                {
+                    title: 'Adaptive Sport Mode',
+                    description: 'Dynamic thruster orientation to adjust thrust and vehicle speed.'
+                }
             ]
         }
     };
-
-    constructor(private sanitizer: DomSanitizer) { }
-
-    getSafeUrl(url: string): SafeResourceUrl {
-        return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    }
 
     nextMedia() {
         this.currentMediaIndex = (this.currentMediaIndex + 1) % this.education.project.media.length;
