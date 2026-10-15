@@ -50,9 +50,9 @@ export class ProjectsComponent {
         {
             images: [
                 'images/AI-Based Autonomous Research Boat/1752428412699.jpg',
+                'images/AI-Based Autonomous Research Boat/1752428412357.jpg',
                 'images/AI-Based Autonomous Research Boat/20250923_183005.jpg',
-                'images/AI-Based Autonomous Research Boat/IMG-20250925-WA0018.jpg',
-                'images/AI-Based Autonomous Research Boat/1752428412357.jpg'
+                'images/AI-Based Autonomous Research Boat/IMG-20250925-WA0018.jpg'
             ],
             title: 'AI-Based Autonomous Research Boat',
             description: 'Siemens EDA Funde - Autonomous research boat designed for environmental data collection.',
@@ -70,16 +70,13 @@ export class ProjectsComponent {
                 'Testing'
             ],
             details: [
-                'SolidWorks',
-                'Mechanical Design',
-                'Weldments',
-                'Sheet Metal Design',
-                'Buoyancy Calculations',
-                'Material Selection',
-                'Waterproofing',
-                'Fabrication',
-                'Assembly',
-                'Testing'
+                'Funded and supported by Siemens EDA (Siemens Digital Industries Software).',
+                'Led the complete mechanical design, fabrication, assembly, and testing of the boat.',
+                'Designed an eight-inch PVC pipe buoyancy system and performed displacement calculations to ensure stability.',
+                'Designed and fabricated a corrosion-protected steel structural frame and stainless steel sheet metal cover.',
+                'Selected and integrated ApisQueen U2 thrusters for propulsion.',
+                'Developed a modular, serviceable electronics enclosure with waterproof cable connectors.',
+                'Successfully tested the boat in a swimming pool, validating buoyancy, propulsion, and waterproofing.'
             ]
         },
 
@@ -92,32 +89,26 @@ export class ProjectsComponent {
                 'images/Sterilizer Control/Sterilizer Control 5.png',
                 
             ],
-            title: 'Sterilizer Control System',
-            description: 'Electrical control system designed and simulated for an automated sterilizer machine',
+            title: 'Automated Patient Turning System',
+            description: 'Mechanical bed attachment designed to reposition immobile patients and help prevent pressure ulcers.',
+            award: 'AAKRUTI Innovation Competition 2025 1st Place',
             technologies: [
-                'CADe SIMU',
-                'Electrical Control Circuits',
-                'Relay Logic',
-                'Contactors',
-                'Timers',
-                'Control Panel Design',
-                'Electrical Wiring',
-                'Sequential Control',
-                'Sensors',
-                'Industrial Automation'
+                'SolidWorks',
+                'Mechanical Design',
+                'Mechanism Design',
+                'Torsion Springs',
+                'Gearbox',
+                'Chain and Sprocket Drive',
+                'Material Selection',
+                'Static Stress Simulation'
             ],
             details: [
-                'Designed the complete electrical control circuit for an automated sterilizer machine',
-                'Designed and verified the control logic using CADe SIMU simulation',
-                'Implemented relay-based sequential control for the different sterilization stages',
-                'Used timers to control the duration of each process stage',
-                'Implemented contactors for switching and controlling the main electrical loads',
-                'Designed interlocking logic to ensure safe and correct sequence operation',
-                'Implemented push buttons and selector controls for operator interaction',
-                'Added indicator lamps to display the operating status of different system stages',
-                'Implemented an audible alarm to indicate cycle completion or system status',
-                'Assembled and wired the practical control panel based on the simulated design',
-                'Tested the control sequence and verified the system operation practically'
+                'Designed a mechanical wing system to tilt patients and redistribute body pressure.',
+                'Designed the main structure using 5 mm aluminum plates, with reinforced joints for repeated loading.',
+                'Integrated torsion springs to counterbalance patient weight and reduce the required motor torque.',
+                'Designed the drive system using a 30 Nm wiper motor, 1:2 gearbox, and chain-and-sprocket transmission.',
+                'Designed adjustable mounting joints for compatibility with different hospital beds.',
+                'Designed for patients weighing up to 120 kg, with a safety factor of 1.65.'
             ]
         },
         {

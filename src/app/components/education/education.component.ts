@@ -29,15 +29,6 @@ export class EducationComponent {
                 },
                 {
                     url: 'images/Graduation_Project/Screenshot 2026-01-24 180207.png'
-                },
-                {
-                    url: 'images/Graduation_Project/Screenshot 2026-01-24 180318.png'
-                },
-                {
-                    url: 'images/Graduation_Project/Screenshot 2026-01-24 180628.png'
-                },
-                {
-                    url: 'images/Graduation_Project/IMG-20260127-WA0039.jpg'
                 }
             ],
             features: [
