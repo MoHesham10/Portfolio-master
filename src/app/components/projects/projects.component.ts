@@ -34,18 +34,17 @@ export class ProjectsComponent {
                 'images/Color Mixing Machine/Color Mixng Machine 4.png',
                 'images/Color Mixing Machine/Color Mixng Machine 5.png'
             ],
-            title: 'Color Mixing Machine',
-            description: 'PLC and SCADA-controlled system for automated RGB color mixing in bottles',
-            technologies: ['Siemens S7-1200', 'WinCC Advanced', 'SCL (Structured Control Language)', 'Function Blocks', 'Timers', 'PLC Programming', 'Conveyor Automation', 'Sensors', 'Mixing Control'],
+            title: 'AI-Powered Underwater ROV',
+            description: 'ROV designed for visual exploration and robotic object retrieval, featuring an adaptive thruster reconfiguration system.',
+            technologies: ['SolidWorks', 'Mechanical Design', 'Mechanism Design', 'Kinematic Analysis', 'Actuator Selection', '3D Printing', 'Laser Cutting', 'Manufacturing Drawings'],
             details: [
-                'Programmed in SCL with custom Function Blocks for modular control logic',
-                'Implemented timers for precise pump activation and mixing duration',
-                'User selects target color from SCADA HMI (RGB or color picker)',
-                'Empty bottle is released onto conveyor and positioned under dosing stations',
-                'Three dosing pumps add R, G, B dyes in precise proportions based on selected color',
-                'Siemens S7-1200 controls sensors, conveyor, pumps, and mixer sequencing',
-                'WinCC Advanced HMI shows real-time status, color preview, and manual override',
-                'Automated mixing and quality check ensures output matches desired color'
+                'Designed the ROV’s mechanical structure, acrylic enclosure, buoyancy system, and camera dome.',
+                'Configured six thrusters to enable 5-DOF maneuverability and designed custom thruster housings.',
+                'Developed Sport Mode, a reconfigurable mechanism that switches four horizontal thrusters between angled and forward-facing orientations.',
+                'Designed the Sport Mode drive mechanism using a DC motor with encoder feedback, gear reduction, a lead screw, and a synchronized crank-slider linkage.',
+                'Incorporated mechanical stops and current-based overload protection; kinematic and mechanical analysis estimated a 79.36% increase in thrust and 33.93% increase in speed.',
+                'Designed a 3-DOF robotic arm for underwater object retrieval.',
+                'Prepared manufacturing drawings and files for machining, laser cutting, and 3D printing.'
             ]
         },
 
